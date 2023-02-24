@@ -4,8 +4,8 @@ public class Sprinter extends Sportsman implements Training{
 
     protected String nationality;
 
-    public Sprinter(String name, int age, int height, int weight, String nationality) {
-        super(name, age, height, weight);
+    public Sprinter(String name, int age, int height, int weight, Condition condition, String nationality) {
+        super(name, age, height, weight, condition);
         this.nationality = nationality;
     }
 

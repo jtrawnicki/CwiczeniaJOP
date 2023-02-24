@@ -4,8 +4,8 @@ public class BasketballPlayer extends Sportsman implements Training{
 
     protected String team;
 
-    public BasketballPlayer(String name, int age, int height, int weight, String team) {
-        super(name, age, height, weight);
+    public BasketballPlayer(String name, int age, int height, int weight, Condition condition, String team) {
+        super(name, age, height, weight, condition);
         this.team = team;
     }
 

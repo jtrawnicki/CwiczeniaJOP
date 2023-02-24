@@ -4,11 +4,10 @@ public class FootballPlayer extends Sportsman implements Training{
 
     protected String club;
 
-    public FootballPlayer(String name, int age, int height, int weight, String club) {
-        super(name, age, height, weight);
+    public FootballPlayer(String name, int age, int height, int weight, Condition condition, String club) {
+        super(name, age, height, weight, condition);
         this.club = club;
     }
-
 
     @Override
     public void warmUp() {
