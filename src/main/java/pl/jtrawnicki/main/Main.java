@@ -7,26 +7,22 @@ public class Main {
     public static void main(String[] args) {
 
         List<Sportsman> athletes = Arrays.asList(
-                new FootballPlayer("Salah", 31, 183, 84, "Liverpool FC"),
-                new Sprinter("Hubert", 23, 187, 71, "Poland"),
-                new BasketballPlayer("James", 32, 196, 92, "LA Lakers"),
-                new Sprinter("Helmut", 226, 179, 68, "Germany"),
-                new FootballPlayer("Mbappe", 24, 186, 83, "PSG"),
-                new Sprinter("Zbyszek", 21, 189, 73, "Poland"),
-                new BasketballPlayer("Doncic", 24, 201, 104, "Dallas Mavericks")
+                new FootballPlayer("Salah", 31, 183, 84, Condition.FIT, "Liverpool FC"),
+                new Sprinter("Hubert", 23, 187, 71, Condition.CONVALESCENT, "Poland"),
+                new BasketballPlayer("James", 32, 196, 92,Condition.CONVALESCENT, "LA Lakers"),
+                new Sprinter("Helmut", 226, 179, 68, Condition.INJURED, "Germany"),
+                new FootballPlayer("Mbappe", 24, 186, 83, Condition.CONVALESCENT, "PSG"),
+                new Sprinter("Zbyszek", 21, 189, 73, Condition.FIT, "Poland"),
+                new BasketballPlayer("Doncic", 24, 201, 104, Condition.INJURED,"Dallas Mavericks")
         );
 
         for (Sportsman sportsman : athletes) {
-            if (sportsman instanceof FootballPlayer) {
-                System.out.println(sportsman.getName() + " trenuje: ");
-                ((FootballPlayer) sportsman).mainTraining();
-            } else if (sportsman instanceof Sprinter) {
-                System.out.println(sportsman.getName() + " rozpoczyna rozgrzewkę: ");
-                ((Sprinter) sportsman).warmUp();
-            } else if (sportsman instanceof BasketballPlayer) {
-                System.out.println(sportsman.getName() + " ćwiczy na siłowni: ");
-                ((BasketballPlayer) sportsman).gym();
-                sportsman.sleep(6);
+            if (sportsman.getCondition().equals(Condition.FIT)) {
+                sportsman.mainTraining();
+            } else if (sportsman.getCondition().equals(Condition.CONVALESCENT)) {
+                sportsman.gym();
+            } else if (sportsman.getCondition().equals(Condition.INJURED)) {
+                sportsman.sleepHours(8);
             }
         }
 
